@@ -18,7 +18,7 @@ models:
       - name: tripid
         data_type: string
         description: ""
-        tests:
+        data_tests:
           - unique:
               severity: warn
           - not_null:
@@ -35,16 +35,16 @@ models:
       - name: pickup_locationid
         data_type: int64
         description: ""
-        tests:
+        data_tests:
           - relationships:
-              to: ref('taxi_zone_lookup')
               field: locationid
+              to: ref('taxi_zone_lookup')
               severity: warn
 
       - name: dropoff_locationid
         data_type: int64
         description: ""
-        tests:
+        data_tests:
           - relationships:
               field: locationid
               to: "ref('taxi_zone_lookup')"
@@ -109,7 +109,7 @@ models:
       - name: payment_type
         data_type: int64
         description: ""
-        tests:
+        data_tests:
           - accepted_values:
               values: "{{ var('payment_type_values') }}"
               severity: warn
@@ -125,7 +125,7 @@ models:
       - name: tripid
         data_type: string
         description: ""
-        tests:
+        data_tests:
           - unique:
               severity: warn
           - not_null:
@@ -142,19 +142,19 @@ models:
       - name: pickup_locationid
         data_type: int64
         description: ""
-        tests:
+        data_tests:
           - relationships:
               field: locationid
-              to: ref('taxi_zone-lookup')
+              to: ref('taxi_zone_lookup')
               severity: warn
 
       - name: dropoff_locationid
         data_type: int64
         description: ""
-        tests:
+        data_tests:
           - relationships:
               field: locationid
-              to: ref('taxi_zone-lookup')
+              to: ref('taxi_zone_lookup')
               severity: warn
 
       - name: pickup_datetime
@@ -216,7 +216,7 @@ models:
       - name: payment_type
         data_type: int64
         description: ""
-        tests:
+        data_tests:
           - accepted_values:
               values: "{{ var('payment_type_values') }}"
               severity: warn
